@@ -1,13 +1,20 @@
+import { useRef } from "react";
 import { useTranslation } from "react-i18next";
 import { Swiper, SwiperSlide } from "swiper/react";
 
 export function LuxuryGallery() {
   const { t } = useTranslation("home");
+  const swiperRef = useRef<any>(null);
+
   return (
     <div className="bg-background">
       <div className="container mx-auto px-0 md:px-4 flex flex-col-reverse md:flex-row gap-x-4">
         <div className="flex flex-col py-8">
-          <Swiper className="w-[300px]" slidesPerView={1}>
+          <Swiper
+            className="w-[300px]"
+            slidesPerView={1}
+            onSwiper={(swiper) => (swiperRef.current = swiper)}
+          >
             <SwiperSlide>
               <div className="px-4 md:px-0">
                 <h6 className="uppercase text-primary text-xl md:text-4xl font-bold">
@@ -25,9 +32,29 @@ export function LuxuryGallery() {
                 </p>
               </div>
             </SwiperSlide>
+            <SwiperSlide>
+              <div className="px-4 md:px-0">
+                <h6 className="uppercase text-primary text-xl md:text-4xl font-bold">
+                  {t("steamGallery.title")}
+                </h6>
+                <p className="mt-4 text-xs md:text-sm leading-5">
+                  {t("steamGallery.content")}
+                </p>
+                <p className="mt-4 text-xs md:text-base capitalize font-semibold leading-5">
+                  {t("steamGallery.footer.f1")}
+                  <br />
+                  {t("steamGallery.footer.f2")}
+                  <br />
+                  {t("steamGallery.footer.f3")}
+                </p>
+              </div>
+            </SwiperSlide>
           </Swiper>
           <div className="hidden md:flex mt-24 gap-x-4">
-            <button className="bg-gradient-to-r from-primary to-primary-700 py-2 px-4 text-white -skew-x-6">
+            <button
+              className="swiper-button-prev-custom bg-gradient-to-r from-primary to-primary-700 py-2 px-4 text-white -skew-x-6"
+              onClick={() => swiperRef.current?.slidePrev()}
+            >
               <svg
                 width="13"
                 height="18"
@@ -41,7 +68,10 @@ export function LuxuryGallery() {
                 />
               </svg>
             </button>
-            <button className="bg-gradient-to-r from-primary to-primary-700 py-2 px-4 text-white -skew-x-6">
+            <button
+              className="swiper-button-next-custom bg-gradient-to-r from-primary to-primary-700 py-2 px-4 text-white -skew-x-6"
+              onClick={() => swiperRef.current?.slideNext()}
+            >
               <svg
                 width="13"
                 height="18"

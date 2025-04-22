@@ -53,6 +53,15 @@
    "f3": "Price does not include VAT & services fee"
   }
  },
+ "steamGallery": {
+  "title": "Steam room",
+  "content": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper",
+  "footer": {
+   "f1": "Only 5 rooms are available",
+   "f2": "Breakfast included",
+   "f3": "Price does not include VAT & services fee"
+  }
+ },
  "review": {
   "title": "What People are Saying",
   "content": {
